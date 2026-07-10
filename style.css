@@ -271,12 +271,29 @@ section { position: relative; overflow: hidden; }
   display: flex; align-items: center; justify-content: center;
 }
 .nav-cta { padding: 10px 22px; font-size: 0.9rem; }
-.hamburger { display: none; flex-direction: column; gap: 5px; padding: 6px; }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  background: rgba(135, 206, 235, 0.1);
+  border: 1.5px solid rgba(135, 206, 235, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1001;
+}
 .hamburger span {
-  display: block; width: 24px; height: 2px;
+  display: block; width: 22px; height: 2.5px;
   background: var(--text-dark);
   border-radius: 2px;
   transition: var(--transition);
+}
+body.dark-mode .hamburger {
+  background: rgba(135, 206, 235, 0.15);
+  border-color: rgba(135, 206, 235, 0.35);
+}
+body.dark-mode .hamburger span {
+  background: #e8f4fc;
 }
 .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 .hamburger.active span:nth-child(2) { opacity: 0; }
@@ -1047,6 +1064,9 @@ section { position: relative; overflow: hidden; }
   .footer-baby-img-wrap { display: none; }
 }
 @media (max-width: 900px) {
+  .nav-container { justify-content: space-between; gap: 12px; }
+  .logo-text { font-size: 1.2rem; }
+  .nav-logo-img { width: 36px; height: 36px; }
   .hero-container, .care-grid, .appt-grid { grid-template-columns: 1fr; }
   .hero-visual { order: -1; }
   .hero-products-float { width: 45%; left: -20px; }
@@ -1056,6 +1076,8 @@ section { position: relative; overflow: hidden; }
   .care-floating-card { right: 16px; }
   .nav-links, .nav-actions .nav-cta { display: none; }
   .hamburger { display: flex; }
+  .nav-actions { gap: 8px; margin-left: auto; }
+  .doctors-grid { grid-template-columns: 1fr 1fr; }
   .footer-container { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 600px) {
@@ -1075,6 +1097,8 @@ section { position: relative; overflow: hidden; }
   .footer-container { grid-template-columns: 1fr; }
   .testimonials-track { grid-template-columns: repeat(4, 100%); }
   .section-container { padding: 0 16px; }
+  .doctors-grid { grid-template-columns: 1fr; }
+  .doctor-img-wrap { height: 200px; }
 }
 
 /* ══════════════════════════ WHATSAPP FAB ══════════════════════════ */
